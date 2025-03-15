@@ -1,12 +1,11 @@
 .container {
   max-width: 800px;
-  margin: 80px auto; 
+  margin: 0 auto;
   background-color: white;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   position: relative;
-  overflow: hidden; 
 }
 
 header {
@@ -29,7 +28,6 @@ header {
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 5px;
-  object-fit: cover; 
 }
 
 .text-container {
@@ -82,6 +80,7 @@ footer {
   font-size: 0.8em;
 }
 
+/* Estilos para el teclado virtual */
 .virtual-keyboard {
   margin: 20px 0;
 }
@@ -132,6 +131,7 @@ footer {
   margin: 0 10px;
 }
 
+/* Estilos para el modal de preguntas */
 .question-modal {
   position: fixed;
   top: 0;
@@ -158,77 +158,71 @@ footer {
 
 @keyframes zoomIn {
   from {
-    transform: scale(0.8);
-    opacity: 0;
+      transform: scale(0.8);
+      opacity: 0;
   }
   to {
-    transform: scale(1);
-    opacity: 1;
+      transform: scale(1);
+      opacity: 1;
   }
 }
 
-@media (max-width: 768px) {
-  .container {
-    margin: 60px auto; 
-    padding: 15px; 
-  }
-
+/* Media Queries para mejorar la responsividad */
+@media (max-width: 600px) {
   header {
-    padding: 10px; 
-  }
-
-  .image-container img {
-    max-height: 150px; 
-  }
-
-  textarea {
-    height: 80px; 
+      font-size: 1.2em;
   }
 
   button {
-    font-size: 14px;
-    padding: 8px 12px;
+      font-size: 14px;
+      padding: 8px 12px;
+  }
+
+.image-container img {
+      max-height: 150px;
+  }
+
+  textarea {
+      height: 80px;
   }
 
   .key-button {
-    min-width: 35px; 
-    height: 35px;
+      min-width: 35px;
+      height: 35px;
+      font-size: 12px;
   }
 
   .action-button {
-    padding: 8px 15px; 
+      font-size: 14px;
+      padding: 8px 16px;
+  }
+
+  footer {
+      font-size: 0.7em;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 400px) {
   .container {
-    margin: 40px auto; 
-    padding: 10px; 
+      padding: 10px;
   }
 
   header {
-    font-size: 1.2em; 
-  }
-
-  .image-container img {
-    max-height: 120px; 
-  }
-
-  textarea {
-    height: 60px;
+      padding: 10px;
   }
 
   button {
-    font-size: 12px; 
-    padding: 6px 10px;
+      width: 100%;
+      margin: 5px 0;
   }
 
   .key-button {
-    min-width: 30px; 
-    height: 30px;
+      min-width: 30px;
+      height: 30px;
+      font-size: 10px;
   }
 
-  .action-button {
-    padding: 6px 12px; 
+  .question-content {
+      padding: 20px;
   }
-} 
+}

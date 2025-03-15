@@ -9,9 +9,8 @@ function App() {
   return (
     <div className="app">
       <Navbar setSection={setSection} />
-      {section === "main" && <h1>Bienvenido</h1>}
+      {section === "main" && <h1>Ve a Trabajar!</h1>}
       {section === "Job" && <Job />}
-
     </div>
   );
 }

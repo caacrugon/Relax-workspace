@@ -1,11 +1,12 @@
 .container {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 80px auto; 
   background-color: white;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   position: relative;
+  overflow: hidden; 
 }
 
 header {
@@ -28,6 +29,7 @@ header {
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 5px;
+  object-fit: cover; 
 }
 
 .text-container {
@@ -80,7 +82,6 @@ footer {
   font-size: 0.8em;
 }
 
-/* Estilos para el teclado virtual */
 .virtual-keyboard {
   margin: 20px 0;
 }
@@ -131,7 +132,6 @@ footer {
   margin: 0 10px;
 }
 
-/* Estilos para el modal de preguntas */
 .question-modal {
   position: fixed;
   top: 0;
@@ -166,3 +166,69 @@ footer {
     opacity: 1;
   }
 }
+
+@media (max-width: 768px) {
+  .container {
+    margin: 60px auto; 
+    padding: 15px; 
+  }
+
+  header {
+    padding: 10px; 
+  }
+
+  .image-container img {
+    max-height: 150px; 
+  }
+
+  textarea {
+    height: 80px; 
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .key-button {
+    min-width: 35px; 
+    height: 35px;
+  }
+
+  .action-button {
+    padding: 8px 15px; 
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    margin: 40px auto; 
+    padding: 10px; 
+  }
+
+  header {
+    font-size: 1.2em; 
+  }
+
+  .image-container img {
+    max-height: 120px; 
+  }
+
+  textarea {
+    height: 60px;
+  }
+
+  button {
+    font-size: 12px; 
+    padding: 6px 10px;
+  }
+
+  .key-button {
+    min-width: 30px; 
+    height: 30px;
+  }
+
+  .action-button {
+    padding: 6px 12px; 
+  }
+} 

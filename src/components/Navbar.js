@@ -11,7 +11,6 @@ function Navbar({ setSection }) {
       {menuOpen && (
         <div className="menu">
         <button onClick={() => setSection("main")}>Inicio</button>
-        <button onClick={() => setSection("Chat")}>Chat</button>
         <button onClick={() => setSection("Job")}>Trabajo</button>
         </div>
       )}

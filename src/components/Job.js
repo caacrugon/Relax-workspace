@@ -29,19 +29,19 @@ function Job() {
     },
     {
         src: "7.jpeg",
-        text: "si la vida te da limones, haz limonada."
+        text: "Si la vida te da limones, haz limonada."
     },
     {
         src: "8.jpeg",
-        text: "yo no soy un producto de mis circunstancias. Soy un producto de mis decisiones."
+        text: "Yo no soy un producto de mis circunstancias. Soy un producto de mis decisiones."
     },
     {
         src: "9.jpeg",
-        text: "juzga a un hombre por sus preguntas en lugar de por sus respuestas."
+        text: "Juzga a un hombre por sus preguntas en lugar de por sus respuestas."
     },
     {
         src: "10.jpeg",
-        text: "recuerda que no conseguir lo que quieres es a veces un maravilloso golpe de suerte."
+        text: "Recuerda que no conseguir lo que quieres es a veces un maravilloso golpe de suerte."
     }
   ];
   

@@ -45,7 +45,6 @@ function Job() {
     }
   ];
   
-  // Preguntas absurdas con sus respuestas
   const absurdQuestions = [
     {
       question: "Si la luna está a 384.400 km de la Tierra y el sol es amarillo, ¿de qué color es la manzana no verde?",
@@ -61,12 +60,32 @@ function Job() {
     },
     {
       question: "Si un tren viaja a 100 km/h y los peces nadan en el mar, ¿qué día es hoy?",
-      answer: "sábado"
+      answer: "sabado"
     },
     {
       question: "Si los árboles tienen hojas y los libros tienen páginas, ¿cuál es la capital de Francia?",
-      answer: "parís"
-    }
+      answer: "paris"
+    },
+    {
+        question: "Si un avión vuela en el cielo y los perros ladran, ¿cuál es el número de lados de un triángulo?",
+        answer: "3"
+      },
+      {
+        question: "Si el agua moja y el fuego quema, ¿cuál es el quinto mes del año?",
+        answer: "mayo"
+      },
+      {
+        question: "Si las estrellas brillan de noche y los peces nadan, ¿cuántos colores tiene un semáforo?",
+        answer: "3"
+      },
+      {
+        question: "Si las arañas tienen 8 patas y los humanos 2, ¿de qué color es el sol al atardecer?",
+        answer: "naranja"
+      },
+      {
+        question: "Si los relojes marcan la hora y las puertas tienen bisagras, ¿cuántas letras tiene la palabra 'luz'?",
+        answer: "3"
+      }
   ];
   
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -89,26 +108,22 @@ function Job() {
     '.', ',', ':', ';', '!', '¡', '?', '¿', '"', "'", ' ', '-', '_'
   ];
   
-  // Función para registrar actividad del usuario
   const recordActivity = () => {
     lastActivityTime.current = Date.now();
     setIdleTime(0);
   };
   
-  // Función para generar una pregunta aleatoria
   const generateRandomQuestion = () => {
     const randomIndex = Math.floor(Math.random() * absurdQuestions.length);
     return absurdQuestions[randomIndex];
   };
   
-  // Función para mostrar una pregunta aleatoria
   const showRandomQuestion = () => {
     const question = generateRandomQuestion();
     setCurrentQuestion(question);
     setUserAnswer('');
     setShowQuestion(true);
     
-    // Iniciar temporizador para eliminar letras si no responde
     const interval = setInterval(() => {
       setUserDescription(prev => {
         if (prev.length > 0) {
@@ -121,7 +136,6 @@ function Job() {
     setLetterRemovalInterval(interval);
   };
   
-  // Verificar la respuesta del usuario
   const checkAnswer = () => {
     if (userAnswer.trim().toLowerCase() === currentQuestion.answer.toLowerCase()) {
       setShowQuestion(false);
@@ -173,14 +187,12 @@ function Job() {
     recordActivity();
   };
 
-  // Comprobar inactividad cada segundo
   useEffect(() => {
     const idleCheck = setInterval(() => {
       const currentTime = Date.now();
       const timeDiff = (currentTime - lastActivityTime.current) / 1000;
       setIdleTime(timeDiff);
       
-      // Si han pasado 5 segundos de inactividad y no hay pregunta activa
       if (timeDiff > 5 && !showQuestion) {
         showRandomQuestion();
       }
@@ -225,11 +237,10 @@ function Job() {
         />
       </div>
       
-      {/* Modal de pregunta */}
       {showQuestion && (
         <div className="question-modal">
           <div className="question-content">
-            <h2>¡Responde rápido!</h2>
+            <h2>¡Concentrate denuevo!</h2>
             <p>{currentQuestion.question}</p>
             <input 
               type="text" 
@@ -238,7 +249,7 @@ function Job() {
               placeholder="Escribe tu respuesta..."
             />
             <button onClick={checkAnswer}>Responder</button>
-            <p className="warning">⚠️ Si no respondes correctamente, perderás letras de tu transcripción.</p>
+            <p className="warning">⚠️ La pagina no funciona correctamente por lo que se pueden perder algunas palabras ya escritas</p>
           </div>
         </div>
       )}

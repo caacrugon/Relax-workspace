@@ -1,0 +1,48 @@
+.main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+  }
+  
+  .main h1 {
+    font-size: 2.5rem;
+    color: #415f63;
+    margin-bottom: 20px;
+  }
+  
+  .action-button {
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #8fbdc7;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .action-button:hover {
+    background-color: #415f63;
+  }
+  
+  .scroll-arrow {
+    position: absolute;
+    bottom: 20px;
+    font-size: 2rem;
+    color: #415f63;
+    animation: bounce 1.5s infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(10px);
+    }
+  }

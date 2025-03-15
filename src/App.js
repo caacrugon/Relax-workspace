@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Navbar from "./components/Navbar.js";
+import Chat from "./components/Chat.js";
+import Job from "./components/Job.js";
+import "./App.css";
 
 function App() {
+  const [section, setSection] = useState("main");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Navbar setSection={setSection} />
+      {section === "main" && <h1>Bienvenido</h1>}  
+      {section === "Chat" && <Chat />}
+      {section === "Job" && <Job />}
+
     </div>
   );
 }

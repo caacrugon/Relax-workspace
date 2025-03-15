@@ -4,16 +4,20 @@
   box-sizing: border-box;
   font-family: Arial, sans-serif;
 }
-
 body {
-  background-color: #dfe1d5; 
-  color: #415f63; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  animation: gradient 15s ease infinite;
   height: 100vh;
+  overflow: hidden;
 }
 
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 .app {
   width: 100vw;
   height: 100vh;

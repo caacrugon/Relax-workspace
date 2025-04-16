@@ -8,40 +8,40 @@ function Job() {
       text: "El amor ya no se lleva. Es demasiado lento demasiado arriesgado, excesivamente costoso y ordenado."
     },
     {
-        src: "2.jpeg",
-        text: "La vida es un misterio que hay que vivir, no un problema que hay que resolver."
+      src: "2.jpeg",
+      text: "La vida es un misterio que hay que vivir, no un problema que hay que resolver."
     },
     {
-        src: "3.jpeg",
-        text: "El amor es la única fuerza capaz de transformar a un enemigo en un amigo."
+      src: "3.jpeg",
+      text: "El amor es la única fuerza capaz de transformar a un enemigo en un amigo."
     },
     {
-        src: "4.jpeg",
-        text: "Si no puedes volar, corre. Si no puedes correr, camina. Si no puedes caminar, gatea. Pero hagas lo que hagas, sigue moviéndote hacia adelante."
+      src: "4.jpeg",
+      text: "Si no puedes volar, corre. Si no puedes correr, camina. Si no puedes caminar, gatea. Pero hagas lo que hagas, sigue moviéndote hacia adelante."
     },
     {
-        src: "5.jpeg",
-        text: "La vida es lo que te pasa mientras estás ocupado haciendo otros planes."
+      src: "5.jpeg",
+      text: "La vida es lo que te pasa mientras estás ocupado haciendo otros planes."
     },
     {
-        src: "6.jpeg",
-        text: "La vida es un 10% lo que me pasa y un 90% cómo reacciono a ello."
+      src: "6.jpeg",
+      text: "La vida es un 10% lo que me pasa y un 90% cómo reacciono a ello."
     },
     {
-        src: "7.jpeg",
-        text: "Si la vida te da limones, haz limonada."
+      src: "7.jpeg",
+      text: "Si la vida te da limones, haz limonada."
     },
     {
-        src: "8.jpeg",
-        text: "Yo no soy un producto de mis circunstancias. Soy un producto de mis decisiones."
+      src: "8.jpeg",
+      text: "Yo no soy un producto de mis circunstancias. Soy un producto de mis decisiones."
     },
     {
-        src: "9.jpeg",
-        text: "Juzga a un hombre por sus preguntas en lugar de por sus respuestas."
+      src: "9.jpeg",
+      text: "Juzga a un hombre por sus preguntas en lugar de por sus respuestas."
     },
     {
-        src: "10.jpeg",
-        text: "Recuerda que no conseguir lo que quieres es a veces un maravilloso golpe de suerte."
+      src: "10.jpeg",
+      text: "Recuerda que no conseguir lo que quieres es a veces un maravilloso golpe de suerte."
     }
   ];
   
@@ -67,25 +67,25 @@ function Job() {
       answer: "paris"
     },
     {
-        question: "Si un avión vuela en el cielo y los perros ladran, ¿cuál es el número de lados de un triángulo?",
-        answer: "3"
-      },
-      {
-        question: "Si el agua moja y el fuego quema, ¿cuál es el quinto mes del año?",
-        answer: "mayo"
-      },
-      {
-        question: "Si las estrellas brillan de noche y los peces nadan, ¿cuántos colores tiene un semáforo?",
-        answer: "3"
-      },
-      {
-        question: "Si las arañas tienen 8 patas y los humanos 2, ¿de qué color es el sol al atardecer?",
-        answer: "naranja"
-      },
-      {
-        question: "Si los relojes marcan la hora y las puertas tienen bisagras, ¿cuántas letras tiene la palabra 'luz'?",
-        answer: "3"
-      }
+      question: "Si un avión vuela en el cielo y los perros ladran, ¿cuál es el número de lados de un triángulo?",
+      answer: "3"
+    },
+    {
+      question: "Si el agua moja y el fuego quema, ¿cuál es el quinto mes del año?",
+      answer: "mayo"
+    },
+    {
+      question: "Si las estrellas brillan de noche y los peces nadan, ¿cuántos colores tiene un semáforo?",
+      answer: "3"
+    },
+    {
+      question: "Si las arañas tienen 8 patas y los humanos 2, ¿de qué color es el sol al atardecer?",
+      answer: "naranja"
+    },
+    {
+      question: "Si los relojes marcan la hora y las puertas tienen bisagras, ¿cuántas letras tiene la palabra 'luz'?",
+      answer: "3"
+    }
   ];
   
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -96,6 +96,8 @@ function Job() {
   const [userAnswer, setUserAnswer] = useState('');
   const [idleTime, setIdleTime] = useState(0);
   const [letterRemovalInterval, setLetterRemovalInterval] = useState(null);
+  const [progress, setProgress] = useState(0);
+  const [isCorrect, setIsCorrect] = useState(null);
   
   const lastActivityTime = useRef(Date.now());
   
@@ -157,33 +159,52 @@ function Job() {
     setUserDescription(prev => prev + key);
     randomizeKeyboard();
     recordActivity();
+    calculateProgress(userDescription + key);
   };
   
   const deleteLastChar = () => {
     setUserDescription(prev => prev.slice(0, -1));
     recordActivity();
+    calculateProgress(userDescription.slice(0, -1));
+  };
+
+  const calculateProgress = (text) => {
+    const targetText = images[currentImageIndex].text;
+    let matchingChars = 0;
+    
+    for (let i = 0; i < Math.min(text.length, targetText.length); i++) {
+      if (text[i] === targetText[i]) {
+        matchingChars++;
+      }
+    }
+    
+    const progressValue = (matchingChars / targetText.length) * 100;
+    setProgress(progressValue);
   };
 
   const changeImage = () => {
     const randomIndex = Math.floor(Math.random() * images.length);
     setCurrentImageIndex(randomIndex);
     setUserDescription('');
+    setProgress(0);
+    setIsCorrect(null);
     randomizeKeyboard();
     recordActivity();
-    console.log("Imagen cargada: " + images[randomIndex].src);
   };
 
   const theJobIsDone = () => {
     if (userDescription.trim() === '') {
-      alert("Por favor, ingrese una transcripcion antes de guardar.");
+      alert("Por favor, ingrese una transcripción antes de guardar.");
       return;
     }
-    if (userDescription === images[currentImageIndex].text) {
-      alert("✔️");
-    } else {
-      alert("✖️");
-    }
-    changeImage();
+    
+    const isCorrectAnswer = userDescription === images[currentImageIndex].text;
+    setIsCorrect(isCorrectAnswer);
+    
+    setTimeout(() => {
+      changeImage();
+    }, 1500);
+    
     recordActivity();
   };
 
@@ -210,91 +231,125 @@ function Job() {
     changeImage();
     randomizeKeyboard();
     recordActivity();
-    console.log("Página cargada - intentando mostrar imagen");
   }, []);
 
   return (
-    <div className="container">
-      <header>
+    <div className="job-container">
+      <header className="job-header">
         <h1>Transcribe</h1>
+        <p className="job-subtitle">Sistema de transcripción de imágenes</p>
       </header>
       
-      <div className="image-container">
-        <img 
-          id="randomImage" 
-          src={images[currentImageIndex].src} 
-          alt="Imagen aleatoria" 
-        />
-      </div>
-      
-      <div className="text-container">
-        <h3>Descripción de la imagen:</h3>
-        <textarea 
-          id="imageDescription" 
-          placeholder="Usa el teclado virtual para escribir..."
-          value={userDescription}
-          readOnly 
-        />
+      <div className="job-content">
+        <div className="image-section">
+          <div className="image-container">
+            <img 
+              src={images[currentImageIndex].src} 
+              alt="Imagen para transcribir" 
+              className="job-image"
+            />
+          </div>
+          
+          <div className="progress-container">
+            <div 
+              className="progress-bar"
+              style={{ width: `${progress}%`, backgroundColor: progress === 100 ? '#2ecc71' : '#3498db' }}
+            ></div>
+            <span className="progress-text">{Math.round(progress)}%</span>
+          </div>
+        </div>
+        
+        <div className="text-section">
+          <div className="text-container">
+            <label htmlFor="imageDescription" className="input-label">
+              Descripción de la imagen:
+            </label>
+            <textarea 
+              id="imageDescription" 
+              placeholder="Usa el teclado virtual para escribir..."
+              value={userDescription}
+              readOnly 
+              className="job-textarea"
+            />
+            
+            {isCorrect !== null && (
+              <div className={`result-feedback ${isCorrect ? 'correct' : 'incorrect'}`}>
+                {isCorrect ? '✔️ Transcripción correcta' : '✖️ Transcripción incorrecta'}
+              </div>
+            )}
+          </div>
+          
+          <div className="controls">
+            <button 
+              className="action-button secondary"
+              onClick={changeImage}
+              disabled={showQuestion}
+            >
+              Cambiar imagen
+            </button>
+            <button 
+              className="action-button primary"
+              onClick={theJobIsDone}
+              disabled={showQuestion}
+            >
+              Verificar transcripción
+            </button>
+          </div>
+        </div>
+        
+        <div className="keyboard-section">
+          <div className="keyboard-container">
+            {keyboard.map((key, index) => (
+              <button 
+                key={index} 
+                className={`key-button ${key === ' ' ? 'space-key' : ''}`}
+                onClick={() => addKey(key)}
+                disabled={showQuestion}
+              >
+                {key === ' ' ? '␣' : key}
+              </button>
+            ))}
+            <button 
+              className="key-button delete-key"
+              onClick={deleteLastChar}
+              disabled={showQuestion}
+            >
+              ⌫
+            </button>
+          </div>
+        </div>
       </div>
       
       {showQuestion && (
         <div className="question-modal">
           <div className="question-content">
-            <h2>¡Concentrate denuevo!</h2>
-            <p>{currentQuestion.question}</p>
+            <h2>¡Concentrate de nuevo!</h2>
+            <p className="question-text">{currentQuestion.question}</p>
             <input 
               type="text" 
               value={userAnswer}
               onChange={(e) => setUserAnswer(e.target.value)}
               placeholder="Escribe tu respuesta..."
+              className="answer-input"
+              onKeyPress={(e) => e.key === 'Enter' && checkAnswer()}
             />
-            <button onClick={checkAnswer}>Responder</button>
-            <p className="warning">⚠️ La pagina no funciona correctamente por lo que se pueden perder algunas palabras ya escritas</p>
+            <div className="question-buttons">
+              <button 
+                onClick={checkAnswer}
+                className="action-button primary"
+              >
+                Responder
+              </button>
+            </div>
+            <p className="warning-text">
+              ⚠️ La página no funciona correctamente por lo que se pueden perder algunas palabras ya escritas
+            </p>
           </div>
         </div>
       )}
       
-      <div className="virtual-keyboard">
-        <div className="keyboard-container">
-          {keyboard.map((key, index) => (
-            <button 
-              key={index} 
-              className="key-button"
-              onClick={() => addKey(key)}
-              disabled={showQuestion}
-            >
-              {key === ' ' ? 'Espacio' : key}
-            </button>
-          ))}
-          <button 
-            className="key-button delete-key"
-            onClick={deleteLastChar}
-            disabled={showQuestion}
-          >
-            Borrar
-          </button>
-        </div>
-      </div>
-      
-      <div className="controls">
-        <button 
-          className="action-button" 
-          onClick={changeImage}
-          disabled={showQuestion}
-        >
-          Cambiar texto
-        </button>
-        <button 
-          className="action-button" 
-          onClick={theJobIsDone}
-          disabled={showQuestion}
-        >
-          Guardar transcripcion
-        </button>
-      </div>
-      
-      <footer>
-        <p>© 2025 Sistema de Análisis de Imágenes. Todos los derechos reservados.</p>
+      <footer className="job-footer">
+        <p>© {new Date().getFullYear()} Sistema de Análisis de Imágenes. Todos los derechos reservados.</p>
       </footer>
     </div>
   );

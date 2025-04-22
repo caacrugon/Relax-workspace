@@ -4,87 +4,39 @@ import './Job.css';
 function Job() {
   const images = [
     {
-      src: "1.jpeg",
-      text: "El amor ya no se lleva. Es demasiado lento demasiado arriesgado, excesivamente costoso y ordenado."
+      src: "ala.png",
+      text: "Johanna Calle"
     },
     {
-      src: "2.jpeg",
-      text: "La vida es un misterio que hay que vivir, no un problema que hay que resolver."
+      src: "alo.png",
+      text: "Alvaro Barrios"
     },
     {
-      src: "3.jpeg",
-      text: "El amor es la única fuerza capaz de transformar a un enemigo en un amigo."
+      src: "ali.png",
+      text: "Doris Salcedo"
     },
     {
-      src: "4.jpeg",
-      text: "Si no puedes volar, corre. Si no puedes correr, camina. Si no puedes caminar, gatea. Pero hagas lo que hagas, sigue moviéndote hacia adelante."
-    },
-    {
-      src: "5.jpeg",
-      text: "La vida es lo que te pasa mientras estás ocupado haciendo otros planes."
-    },
-    {
-      src: "6.jpeg",
-      text: "La vida es un 10% lo que me pasa y un 90% cómo reacciono a ello."
-    },
-    {
-      src: "7.jpeg",
-      text: "Si la vida te da limones, haz limonada."
-    },
-    {
-      src: "8.jpeg",
-      text: "Yo no soy un producto de mis circunstancias. Soy un producto de mis decisiones."
-    },
-    {
-      src: "9.jpeg",
-      text: "Juzga a un hombre por sus preguntas en lugar de por sus respuestas."
-    },
-    {
-      src: "10.jpeg",
-      text: "Recuerda que no conseguir lo que quieres es a veces un maravilloso golpe de suerte."
+      src: "alu.png",
+      text: "Wilson Diaz"
     }
   ];
   
   const absurdQuestions = [
     {
-      question: "Si la luna está a 384.400 km de la Tierra y el sol es amarillo, ¿de qué color es la manzana no verde?",
-      answer: "roja"
+      question: "Si el Museo de Arte Moderno de Bogotá está en la capital y fue diseñado por Rogelio Salmona, ¿en qué ciudad queda?",
+      answer: "bogotá"
     },
     {
-      question: "Si los gatos tienen 4 patas y las hormigas tienen 6, ¿cuántas ruedas tiene una bicicleta?",
-      answer: "2"
+      question: "Si el arte denuncia y la historia duele, ¿qué conflicto ha marcado a muchos artistas colombianos contemporáneos?",
+      answer: "armado"
     },
     {
-      question: "Si el cielo es azul y el césped es verde, ¿cuál es el resultado de 2+2?",
-      answer: "4"
+      question: "Si Álvaro Barrios crea historietas y collages pop, ¿qué técnica usa para unir imágenes?",
+      answer: "collage"
     },
     {
-      question: "Si un tren viaja a 100 km/h y los peces nadan en el mar, ¿qué día es hoy?",
-      answer: "sabado"
-    },
-    {
-      question: "Si los árboles tienen hojas y los libros tienen páginas, ¿cuál es la capital de Francia?",
-      answer: "paris"
-    },
-    {
-      question: "Si un avión vuela en el cielo y los perros ladran, ¿cuál es el número de lados de un triángulo?",
-      answer: "3"
-    },
-    {
-      question: "Si el agua moja y el fuego quema, ¿cuál es el quinto mes del año?",
-      answer: "mayo"
-    },
-    {
-      question: "Si las estrellas brillan de noche y los peces nadan, ¿cuántos colores tiene un semáforo?",
-      answer: "3"
-    },
-    {
-      question: "Si las arañas tienen 8 patas y los humanos 2, ¿de qué color es el sol al atardecer?",
-      answer: "naranja"
-    },
-    {
-      question: "Si los relojes marcan la hora y las puertas tienen bisagras, ¿cuántas letras tiene la palabra 'luz'?",
-      answer: "3"
+      question: "Si Johanna Calle usa el dibujo como reflexión social, ¿sobre qué material escribe y dibuja frecuentemente?",
+      answer: "papel"
     }
   ];
   

@@ -43,7 +43,7 @@ function Job() {
       answer: "dolor silencioso"
     },
     {
-      question: "Si el dolor pudiera tocarse, ¿sería como una silla vacía?",
+      question: "Si el dolor pudiera tocarse, ¿sería como una silla vacía?¿y eso es?",
       answer: "ausencia"
     },
     {

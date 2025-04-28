@@ -37,6 +37,58 @@ function Job() {
     {
       question: "Si Johanna Calle usa el dibujo como reflexión social, ¿sobre qué material escribe y dibuja frecuentemente?",
       answer: "papel"
+    },
+    {
+      question: "¿Por qué Doris Salcedo trabaja con muebles rotos y no con gritos?",
+      answer: "dolor silencioso"
+    },
+    {
+      question: "Si el dolor pudiera tocarse, ¿sería como una silla vacía?",
+      answer: "ausencia"
+    },
+    {
+      question: "¿Guardar silencio es su manera de hacer que el mundo escuche?",
+      answer: "sí"
+    },
+    {
+      question: "¿Por qué Óscar Muñoz dibuja con agua si sabe que se va a secar?",
+      answer: "fragilidad"
+    },
+    {
+      question: "¿Las fotos borradas son recuerdos que se fueron o que nunca llegaron?",
+      answer: "se fueron"
+    },
+    {
+      question: "Si el polvo tiene memoria, ¿por qué lo barremos?",
+      answer: "olvido"
+    },
+    {
+      question: "¿Los híbridos precolombinos-pop son monstruos o hijos del mestizaje?",
+      answer: "crítica"
+    },
+    {
+      question: "¿Por qué ponerle una máscara indígena a Mickey Mouse?",
+      answer: "apropiación"
+    },
+    {
+      question: "Si el arte es un espejo, ¿por qué nos muestra lo que no queremos ser?",
+      answer: "contradicciones"
+    },
+    {
+      question: "¿Las pantallas muestran la herida o la tapan?",
+      answer: "muestran"
+    },
+    {
+      question: "¿Por qué filmar cirugías como si fueran rituales?",
+      answer: "violencia"
+    },
+    {
+      question: "¿El barro que usa llora?",
+      answer: "sí"
+    },
+    {
+      question: "¿Por qué trabaja con tierra y no con palabras?",
+      answer: "memoria muda"
     }
   ];
   
@@ -218,7 +270,7 @@ function Job() {
             </label>
             <textarea 
               id="imageDescription" 
-              placeholder="Usa el teclado virtual para escribir..."
+              placeholder="Escribe el nombre del autor"
               value={userDescription}
               readOnly 
               className="job-textarea"

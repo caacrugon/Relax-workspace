@@ -24,7 +24,7 @@ function Job() {
   const absurdQuestions = [
     {
       question: "Si el Museo de Arte Moderno de Bogotá está en la capital y fue diseñado por Rogelio Salmona, ¿en qué ciudad queda?",
-      answer: "bogotá"
+      answer: "bogota"
     },
     {
       question: "Si el arte denuncia y la historia duele, ¿qué conflicto ha marcado a muchos artistas colombianos contemporáneos?",
@@ -48,7 +48,7 @@ function Job() {
     },
     {
       question: "¿Guardar silencio es su manera de hacer que el mundo escuche?",
-      answer: "sí"
+      answer: "si"
     },
     {
       question: "¿Por qué Óscar Muñoz dibuja con agua si sabe que se va a secar?",
@@ -63,16 +63,12 @@ function Job() {
       answer: "olvido"
     },
     {
-      question: "¿Los híbridos precolombinos-pop son monstruos o hijos del mestizaje?",
-      answer: "crítica"
-    },
-    {
       question: "¿Por qué ponerle una máscara indígena a Mickey Mouse?",
-      answer: "apropiación"
+      answer: "apropiacion"
     },
     {
       question: "Si el arte es un espejo, ¿por qué nos muestra lo que no queremos ser?",
-      answer: "contradicciones"
+      answer: "contradiccion"
     },
     {
       question: "¿Las pantallas muestran la herida o la tapan?",
@@ -137,7 +133,7 @@ function Job() {
         }
         return prev;
       });
-    }, 5000);
+    }, 10000);
     
     setLetterRemovalInterval(interval);
   };

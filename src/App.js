@@ -9,12 +9,12 @@ function App() {
     <div className="app">
       {section === "main" && (
         <>
-          <h1>Ve a Estudiar!</h1>
+          <h1>Ve a Trabajar!</h1>
           <button 
             className="work-button"
             onClick={() => setSection("Job")}
           >
-            Repasar
+            Trabaja
           </button>
         </>
       )}
